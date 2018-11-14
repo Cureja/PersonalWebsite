@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alvin Ho</title>
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Kumar+One+Outline" :700" rel="stylesheet">
+</head>
+
+<style>
+	h1, p {
+	    text-align: center;
+	    color: white;
+	    margin: auto;
+
+	} 
+	h1 {
+		font-family: 'Kumar One Outline', cursive;
+	    font-size: 110px;
+	    height: 175px;
+	    width:800px;
+	}
+	p#option {
+		font-family: 'Press Start 2P', cursive;
+		padding: 15px;
+		font-size: 2em;
+		text-align: left;
+		width:450px;
+
+	}
+	p {
+		width:800px;
+		font-size: 1.5em;
+		font-family: 'Press Start 2P', cursive;
+	}
+	html, body {
+		height: 100%;
+	}
+	body {
+		background-color: black;
+		text-align: center; 
+		padding: 0;     
+		margin: 0; 
+	}
+
+	.menu {
+		padding-left: 20em;
+		padding-bottom: 4em;
+	}
+	.copyright {
+
+	}
+	div#s1 {
+		margin-left: 31em;
+		margin-top: 1em;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		background-color: white;
+		opacity: 0;
+	}
+	div#s2 {
+		margin-left: 31em;
+		margin-top: 1em;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		background-color: white;
+		opacity: 0;
+	}
+	div#s3 {
+		margin-left: 31em;
+		margin-top: 1em;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		background-color: white;
+		opacity: 0;
+	}
+	div#s4 {
+		margin-left: 31em;
+		margin-top: 1em;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		background-color: white;
+		opacity: 0;
+	}
+	div#distance { 
+		margin-bottom: -10em;
+		width: 1px;
+		height: 35%;
+		float: left;   
+	}
+	div#content {
+		position: relative;
+		text-align: left; 
+		margin: 0 auto;
+		clear: left;
+	}
+</style>
+
+<body onload="selectAnim()">
+	<div id="distance"></div>
+	<div id=content>
+		<div class=title>
+			<h1><a style=color:#f14124>Alvin</a> <a style=color:#4eacf3>Ho</a></h1>
+		</div>
+
+		<div class=menu>
+			<div = onmouseover="select(s1)"> 
+				<div id=s1></div> <p id=option>Start Game</p>
+			</div>
+			<div = onmouseover="select(s2)">  
+				<div id=s2></div> <p id=option>Feats</p>
+			</div>
+			<div = onmouseover="select(s3)">
+				<div id=s3></div> <p id=option>About Me</p>
+			</div>
+			<div = onmouseover="select(s4)">
+				<div id=s4></div> <p id=option>Exit</p>
+			</div>	
+
+		</div>
+
+		<div class=copyright>
+			<p>©1998 Gimic</p>
+		</div>
+	</div>
+
+	<script>
+		var selected = s1;
+
+		function selectAnim() {
+			var elem = document.getElementById("s1");
+			elem.style.opacity = 1;
+			var pos = 90;
+			var id = setInterval(frame, 10);
+			function frame() {
+		  		if (elem != selected) {
+		  			elem.style.transform = 'rotate('+ 0 + 'deg)';
+		  			elem.style.opacity = 0;
+		  			elem = selected;
+		  			elem.style.opacity = 1;
+		  		} 
+		      	pos++; 
+		      	elem.style.left = 10+25*Math.sin(pos/50) + 'px';
+		      	elem.style.transform = 'rotate('+ pos + 'deg)';
+
+		  	}
+		}
+
+		function select(x) {
+			selected = x;
+		}
+	</script>
+</body>
+
+</html>
