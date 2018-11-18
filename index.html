@@ -10,21 +10,21 @@
 	    text-align: center;
 	    color: white;
 	    margin: auto;
-
+	    cursor: default;
 	} 
 	h1 {
 		font-family: 'Kumar One Outline', cursive;
 	    font-size: 110px;
 	    height: 175px;
 	    width:800px;
+
 	}
 	p#option {
-		font-family: 'Press Start 2P', cursive;
 		padding: 15px;
 		font-size: 2em;
 		text-align: left;
 		width:450px;
-
+		cursor: pointer;
 	}
 	p {
 		width:800px;
@@ -42,45 +42,46 @@
 	}
 
 	.menu {
-		padding-left: 20em;
-		padding-bottom: 4em;
+		margin-left: 30em;
+		margin-right: 10em;
+		margin-bottom: 4em;
 	}
 	.copyright {
 
 	}
 	div#s1 {
-		margin-left: 31em;
-		margin-top: 1em;
+		float: left;
+		margin-top: 18px;
 		width: 25px;
 		height: 25px;
-		position: absolute;
+		position: relative;
 		background-color: white;
 		opacity: 0;
 	}
 	div#s2 {
-		margin-left: 31em;
-		margin-top: 1em;
+		float: left;
+		margin-top: 15px;
 		width: 25px;
 		height: 25px;
-		position: absolute;
+		position: relative;
 		background-color: white;
 		opacity: 0;
 	}
 	div#s3 {
-		margin-left: 31em;
-		margin-top: 1em;
+		float: left;
+		margin-top: 15px;
 		width: 25px;
 		height: 25px;
-		position: absolute;
+		position: relative;
 		background-color: white;
 		opacity: 0;
 	}
 	div#s4 {
-		margin-left: 31em;
-		margin-top: 1em;
+		float: left;
+		margin-top: 15px;
 		width: 25px;
 		height: 25px;
-		position: absolute;
+		position: relative;
 		background-color: white;
 		opacity: 0;
 	}
@@ -106,17 +107,17 @@
 		</div>
 
 		<div class=menu>
-			<div = onmouseover="select(s1)"> 
+			<div onmouseover="select(s1)"> 
 				<div id=s1></div> <p id=option>Start Game</p>
 			</div>
-			<div = onmouseover="select(s2)">  
+			<div onmouseover="select(s2)">  
 				<div id=s2></div> <p id=option>Feats</p>
 			</div>
-			<div = onmouseover="select(s3)">
+			<div onmouseover="select(s3)">
 				<div id=s3></div> <p id=option>About Me</p>
 			</div>
-			<div = onmouseover="select(s4)">
-				<div id=s4></div> <p id=option>Exit</p>
+			<div onmouseover="select(s4)">
+				<div id=s4></div> <p id=option onclick="window.open('', '_self', ''); window.close();">Exit</p>
 			</div>	
 
 		</div>
@@ -142,9 +143,8 @@
 		  			elem.style.opacity = 1;
 		  		} 
 		      	pos++; 
-		      	elem.style.left = 10+25*Math.sin(pos/50) + 'px';
+		      	elem.style.left = 40+40*Math.sin(pos/40) + 'px';
 		      	elem.style.transform = 'rotate('+ pos + 'deg)';
-
 		  	}
 		}
 
