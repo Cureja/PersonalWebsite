@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Kumar+One+Outline" :700" rel="stylesheet">
 </head>
 
-<style>
+<style type="text/css">
 	h1, p {
 	    text-align: center;
 	    color: white;
@@ -14,10 +15,8 @@
 	} 
 	h1 {
 		font-family: 'Kumar One Outline', cursive;
-	    font-size: 110px;
-	    height: 175px;
-	    width:800px;
-
+		font-size: 110px;
+		height: 175px;
 	}
 	p#option {
 		padding: 15px;
@@ -42,16 +41,25 @@
 	}
 
 	.menu {
-		margin-left: 30em;
+		margin-left: 20em;
 		margin-right: 10em;
 		margin-bottom: 4em;
 	}
 	.copyright {
 
 	}
-	div#s1 {
+	div#s0 {
 		float: left;
 		margin-top: 18px;
+		width: 25px;
+		height: 25px;
+		position: relative;
+		background-color: white;
+		opacity: 0;
+	}
+	div#s1 {
+		float: left;
+		margin-top: 15px;
 		width: 25px;
 		height: 25px;
 		position: relative;
@@ -76,15 +84,6 @@
 		background-color: white;
 		opacity: 0;
 	}
-	div#s4 {
-		float: left;
-		margin-top: 15px;
-		width: 25px;
-		height: 25px;
-		position: relative;
-		background-color: white;
-		opacity: 0;
-	}
 	div#distance { 
 		margin-bottom: -10em;
 		width: 1px;
@@ -96,10 +95,11 @@
 		text-align: left; 
 		margin: 0 auto;
 		clear: left;
+    	width: 800px;
 	}
-</style>
+</style>>
 
-<body onload="selectAnim()">
+<body onload="selectAnim()" onkeydown="selectKey(event)">
 	<div id="distance"></div>
 	<div id=content>
 		<div class=title>
@@ -107,43 +107,43 @@
 		</div>
 
 		<div class=menu>
-			<div onmouseover="select(s1)"> 
-				<div id=s1></div> <p id=option>Start Game</p>
+			<div onmouseover="select('s0')"> 
+				<div id=s0></div> <p id=option>Start Game</p>
 			</div>
-			<div onmouseover="select(s2)">  
-				<div id=s2></div> <p id=option>Feats</p>
+			<div onmouseover="select('s1')">  
+				<div id=s1></div> <p id=option>Feats</p>
 			</div>
-			<div onmouseover="select(s3)">
-				<div id=s3></div> <p id=option>About Me</p>
+			<div onmouseover="select('s2')">
+				<div id=s2></div> <p id=option>About Me</p>
 			</div>
-			<div onmouseover="select(s4)">
-				<div id=s4></div> <p id=option onclick="window.open('', '_self', ''); window.close();">Exit</p>
+			<div onmouseover="select('s3')">
+				<div id=s3></div> <p id=option onclick="window.open('', '_self', ''); window.close();">Exit</p>
 			</div>	
 
 		</div>
 
 		<div class=copyright>
-			<p>©1998 Gimic</p>
+			<p>©1998 Gim·mick</p>
 		</div>
 	</div>
 
 	<script>
-		var selected = s1;
+		var selected = "s0";
 
 		function selectAnim() {
-			var elem = document.getElementById("s1");
+			var elem = document.getElementById("s0");
 			elem.style.opacity = 1;
 			var pos = 90;
 			var id = setInterval(frame, 10);
 			function frame() {
-		  		if (elem != selected) {
+		  		if (elem.id != selected) {
 		  			elem.style.transform = 'rotate('+ 0 + 'deg)';
 		  			elem.style.opacity = 0;
-		  			elem = selected;
+		  			elem = document.getElementById(selected);
 		  			elem.style.opacity = 1;
 		  		} 
 		      	pos++; 
-		      	elem.style.left = 40+40*Math.sin(pos/40) + 'px';
+		      	elem.style.right = 100+40*Math.sin(pos/40) + 'px';
 		      	elem.style.transform = 'rotate('+ pos + 'deg)';
 		  	}
 		}
@@ -151,6 +151,18 @@
 		function select(x) {
 			selected = x;
 		}
+    
+    function selectKey(event) {
+      const key = event.which || event.keyCode;
+      const UP = 38;
+      const DOWN = 40;
+      if(key === DOWN) {
+        selected = "s"+((parseInt(selected.charAt(1))+1)%4)
+      }
+      else if(key === UP) {
+        selected = "s"+((parseInt(selected.charAt(1))+3)%4)
+      }
+    }
 	</script>
 </body>
 
