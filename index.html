@@ -30,6 +30,9 @@
 		font-size: 1.5em;
 		font-family: 'Press Start 2P', cursive;
 	}
+	a {
+		text-decoration: none;
+	}
 	html, body {
 		height: 100%;
 	}
@@ -48,36 +51,9 @@
 	.copyright {
 
 	}
-	div#s0 {
+	.box {
 		float: left;
 		margin-top: 18px;
-		width: 25px;
-		height: 25px;
-		position: relative;
-		background-color: white;
-		opacity: 0;
-	}
-	div#s1 {
-		float: left;
-		margin-top: 15px;
-		width: 25px;
-		height: 25px;
-		position: relative;
-		background-color: white;
-		opacity: 0;
-	}
-	div#s2 {
-		float: left;
-		margin-top: 15px;
-		width: 25px;
-		height: 25px;
-		position: relative;
-		background-color: white;
-		opacity: 0;
-	}
-	div#s3 {
-		float: left;
-		margin-top: 15px;
 		width: 25px;
 		height: 25px;
 		position: relative;
@@ -100,7 +76,7 @@
 </style>>
 
 <body onload="selectAnim()" onkeydown="selectKey(event)">
-	<div id="distance"></div>
+	<div id=distance></div>
 	<div id=content>
 		<div class=title>
 			<h1><a style=color:#f14124>Alvin</a> <a style=color:#4eacf3>Ho</a></h1>
@@ -108,16 +84,16 @@
 
 		<div class=menu>
 			<div onmouseover="select('s0')"> 
-				<div id=s0></div> <p id=option>Start Game</p>
+				<div id=s0 class=box></div> <p id=option>Start Game</p>
 			</div>
-			<div onmouseover="select('s1')">  
-				<div id=s1></div> <p id=option>Feats</p>
-			</div>
+			<a href=https://drive.google.com/file/d/1OtbQi75HpfF33Hk6Ra_j1BlEqOlnOUqD/view><div onmouseover="select('s1')">  
+				<div id=s1 class=box></div> <p id=option>Feats</p>
+			</div></a>
 			<div onmouseover="select('s2')">
-				<div id=s2></div> <p id=option>About Me</p>
+				<div id=s2 class=box></div> <p id=option>About Me</p>
 			</div>
 			<div onmouseover="select('s3')">
-				<div id=s3></div> <p id=option onclick="window.open('', '_self', ''); window.close();">Exit</p>
+				<div id=s3 class=box></div> <p id=option onclick="window.open('', '_self', ''); window.close();">Exit</p>
 			</div>	
 
 		</div>
@@ -134,7 +110,7 @@
 			var elem = document.getElementById("s0");
 			elem.style.opacity = 1;
 			var pos = 90;
-			var id = setInterval(frame, 10);
+			setInterval(frame, 10);
 			function frame() {
 		  		if (elem.id != selected) {
 		  			elem.style.transform = 'rotate('+ 0 + 'deg)';
@@ -152,17 +128,17 @@
 			selected = x;
 		}
     
-    function selectKey(event) {
-      const key = event.which || event.keyCode;
-      const UP = 38;
-      const DOWN = 40;
-      if(key === DOWN) {
-        selected = "s"+((parseInt(selected.charAt(1))+1)%4)
-      }
-      else if(key === UP) {
-        selected = "s"+((parseInt(selected.charAt(1))+3)%4)
-      }
-    }
+		function selectKey(event) {
+			const key = event.which || event.keyCode;
+			const UP = 38;
+			const DOWN = 40;
+			if(key === DOWN) {
+				selected = "s"+((parseInt(selected.charAt(1))+1)%4)
+			}
+			else if(key === UP) {
+				selected = "s"+((parseInt(selected.charAt(1))+3)%4)
+			}
+		}
 	</script>
 </body>
 
